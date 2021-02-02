@@ -85,7 +85,7 @@ train_cutoff = int(total * train_ratio)
 valid_cutoff = int(total * (1 - valid_ratio))
 
 train_x, train_y = padded_reviews[:train_cutoff], encoded_labels[:train_cutoff]
-valid_x, valid_y = padded_reviews[:train_cutoff : valid_cutoff], encoded_labels[train_cutoff : valid_cutoff]
+valid_x, valid_y = padded_reviews[train_cutoff : valid_cutoff], encoded_labels[train_cutoff : valid_cutoff]
 test_x, test_y = padded_reviews[valid_cutoff:], encoded_labels[valid_cutoff:]
 
 from torch.utils.data import TensorDataset, DataLoader
